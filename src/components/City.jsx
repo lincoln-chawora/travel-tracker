@@ -1,4 +1,6 @@
 import styles from "./City.module.css";
+import {useNavigate, useParams, useSearchParams} from "react-router-dom";
+import {Button} from "./Button.jsx";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -9,6 +11,13 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function City() {
+    const navigate = useNavigate();
+    const {id} = useParams();
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    const lat = searchParams.get('lat');
+    const lng = searchParams.get('lng');
+
   // TEMP DATA
   const currentCity = {
     cityName: "Lisbon",
@@ -52,7 +61,7 @@ function City() {
       </div>
 
       <div>
-        <ButtonBack />
+          <Button type='back' onClick={() => navigate(-1)}>&larr; Back</Button>
       </div>
     </div>
   );
