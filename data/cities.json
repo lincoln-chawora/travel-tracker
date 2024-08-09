@@ -1,52 +1,52 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
+      "cityName": "Paris",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2024-07-19T15:55:31.000Z",
+      "notes": "When to the olympics and it was incredible!",
       "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
+        "lat": "48.86305120753637",
+        "lng": "2.363243390964516"
       },
-      "id": 73930385
+      "id": 98443198
     },
     {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2023-12-14T16:56:31.000Z",
+      "notes": "Pancakes lol",
       "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
+        "lat": "51.50767813091456",
+        "lng": "-0.13357690104422784"
       },
-      "id": 17806751
+      "id": 98443199
     },
     {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
+      "cityName": "Harare",
+      "country": "Zimbabwe",
+      "emoji": "🇿🇼",
+      "date": "2023-12-04T23:14:05.000Z",
+      "notes": "Amazing time with the family!",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
+        "lat": "-17.844608280255173",
+        "lng": "31.07119537748459"
       },
-      "id": 98443197
+      "id": 98443200
     },
     {
-      "cityName": "Munich",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2026-02-12T09:24:11.863Z",
-      "notes": "Amazing",
+      "cityName": "Dublin",
+      "country": "Ireland",
+      "emoji": "🇮🇪",
+      "date": "2024-09-05T22:18:59.127Z",
+      "notes": "Awesome place",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
+        "lat": "53.249855122583824",
+        "lng": "-6.170383797546937"
       },
-      "id": 98442197
+      "id": 98443201
     }
   ]
 }

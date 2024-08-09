@@ -1,8 +1,11 @@
 import styles from "./CountryList.module.css"
 import Spinner from "./Spinner.jsx";
 import CountryItem from "./CountryItem.jsx";
+import {useCitiesContext} from "../contexts/CitiesContext.jsx";
 
-export function CountryList({cities, isLoading}) {
+export function CountryList() {
+    const {cities, isLoading} = useCitiesContext();
+
     if (isLoading) return <Spinner />;
 
     const countries = cities.filter((value, index, self) =>
