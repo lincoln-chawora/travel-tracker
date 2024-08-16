@@ -4,7 +4,7 @@
       "cityName": "Paris",
       "country": "France",
       "emoji": "🇫🇷",
-      "date": "2024-07-19T15:55:31.000Z",
+      "date": "2024-07-20T15:55:31.000Z",
       "notes": "When to the olympics and it was incredible!",
       "position": {
         "lat": "48.86305120753637",
@@ -17,7 +17,7 @@
       "country": "United Kingdom of Great Britain and Northern Ireland (the)",
       "emoji": "🇬🇧",
       "date": "2023-12-14T16:56:31.000Z",
-      "notes": "Pancakes lol",
+      "notes": "Pancakes lol Joke they was actually good!!",
       "position": {
         "lat": "51.50767813091456",
         "lng": "-0.13357690104422784"
@@ -40,7 +40,7 @@
       "cityName": "Dublin",
       "country": "Ireland",
       "emoji": "🇮🇪",
-      "date": "2024-09-05T22:18:59.127Z",
+      "date": "2022-11-16T23:18:59.000Z",
       "notes": "Awesome place",
       "position": {
         "lat": "53.249855122583824",
@@ -76,7 +76,7 @@
       "cityName": "Amsterdam",
       "country": "Netherlands (Kingdom of the)",
       "emoji": "🇳🇱",
-      "date": "2024-09-05T23:24:15.316Z",
+      "date": "2024-03-27T00:24:15.000Z",
       "notes": "The trip!",
       "position": {
         "lat": "52.36175127010866",
@@ -112,7 +112,7 @@
       "cityName": "Prague",
       "country": "Czechia",
       "emoji": "🇨🇿",
-      "date": "2024-09-05T23:25:35.785Z",
+      "date": "2024-03-08T00:25:35.000Z",
       "notes": "Stag and trip",
       "position": {
         "lat": "50.056603140546514",
@@ -191,6 +191,30 @@
         "lng": "23.73790863969033"
       },
       "id": 98443213
+    },
+    {
+      "cityName": "Tura",
+      "country": "Russian Federation (the)",
+      "emoji": "🇷🇺",
+      "date": "2024-09-06T00:04:05.384Z",
+      "notes": " Motha",
+      "position": {
+        "lat": "60.91544307233879",
+        "lng": "99.34476331470657"
+      },
+      "id": 98443214
+    },
+    {
+      "cityName": "Los Navalucillos",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-09-06T00:47:24.730Z",
+      "notes": "",
+      "position": {
+        "lat": "39.67021940477495",
+        "lng": "-4.633741108107819"
+      },
+      "id": 98443215
     }
   ]
 }

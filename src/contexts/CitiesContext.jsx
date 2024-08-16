@@ -64,7 +64,6 @@ function CitiesProvider({children}) {
             });
 
             if (!response.ok) throw new Error('Something went wrong with deleting city.');
-            console.log(`Response: (${id})`, response)
             dispatch({type: 'city/deleted', payload: id});
         } catch (error) {
             dispatch({type: 'rejected', payload: error.message});
@@ -82,9 +81,30 @@ function CitiesProvider({children}) {
                 body: JSON.stringify(newCity)
             });
 
+            if (!response.ok) throw new Error('Something went wrong with created city.');
+
             const data = await response.json();
-            console.log('Data', data)
             dispatch({type: 'city/created', payload: data});
+        } catch (error) {
+            dispatch({type: 'rejected', payload: error.message});
+        }
+    }
+
+    async function updateCity(id, updatedCity) {
+        dispatch({type: 'loading'});
+        try {
+            const response = await fetch(`${BASE_URL}${id ? `/${id}` : ''}`, {
+                method: "PUT",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedCity)
+            });
+
+            if (!response.ok) throw new Error('Something went wrong with updating city.');
+
+            const data = await response.json();
+            dispatch({type: 'city/updated', payload: data});
         } catch (error) {
             dispatch({type: 'rejected', payload: error.message});
         }
@@ -96,6 +116,7 @@ function CitiesProvider({children}) {
             isLoading,
             getCity,
             createCity,
+            updateCity,
             deleteCity,
             currentCity
         }}>

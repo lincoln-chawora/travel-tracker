@@ -7,8 +7,8 @@ import Login from "./pages/Login";
 import {AppLayoutPage} from "./pages/AppLayoutPage";
 import {CityList} from "./components/CityList";
 import {CountryList} from "./components/CountryList";
-import City from "./components/City.jsx";
-import Form from "./components/Form.jsx";
+import {City} from "./components/City.jsx";
+import {Form} from "./components/Form.jsx";
 import {CitiesProvider} from "./contexts/CitiesContext";
 
 function App() {

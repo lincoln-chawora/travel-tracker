@@ -1,9 +1,11 @@
 import styles from "./City.module.css";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useCitiesContext} from "../contexts/CitiesContext.jsx";
 import {useEffect} from "react";
 import Spinner from "./Spinner.jsx";
 import {BackButton} from "./BackButton";
+import {Button} from "./Button";
+import {useUrlPosition} from "../hooks/useUrlPosition.js";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -13,8 +15,11 @@ const formatDate = (date) =>
     weekday: "long",
   }).format(new Date(date));
 
-function City() {
+export function City() {
+    // Url param defined on route path such as: <Route path="cities/:id" />
     const {id} = useParams();
+    const navigate = useNavigate();
+    const [mapLat, mapLng] = useUrlPosition();
 
     const {getCity, currentCity, isLoading} = useCitiesContext();
 
@@ -24,6 +29,10 @@ function City() {
     }, [id]);
 
     const { cityName, emoji, date, notes } = currentCity;
+
+    function handleEdit() {
+        navigate(`/app/form?lat=${mapLat}&lng=${mapLng}&cityID=${id}`)
+    }
 
     if (isLoading) return <Spinner />;
 
@@ -59,11 +68,11 @@ function City() {
             </a>
           </div>
 
-          <div>
+          <div className={styles.btnContainer}>
               <BackButton />
+
+              {mapLat && mapLat && <Button type='primary' onClick={e => handleEdit(e)}>Edit</Button>}
           </div>
         </div>
     );
 }
-
-export default City;

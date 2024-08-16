@@ -17,6 +17,15 @@ export function cityReducer(state, action) {
                 isLoading: false,
                 cities: [...state.cities, action.payload]
             }
+        case 'city/updated':
+            return {
+                ...state,
+                isLoading: false,
+                cities: state.cities.map(city =>
+                    city.id === action.payload.id ? action.payload : city
+                ),
+                currentCity: action.payload
+            }
         case 'city/deleted':
             return {
                 ...state,
