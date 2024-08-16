@@ -47,6 +47,150 @@
         "lng": "-6.170383797546937"
       },
       "id": 98443201
+    },
+    {
+      "cityName": "Lisbon",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2024-09-05T23:17:57.114Z",
+      "notes": "Fun in cintra :)",
+      "position": {
+        "lat": "38.7321841303779",
+        "lng": "-9.143117779159793"
+      },
+      "id": 98443202
+    },
+    {
+      "cityName": "Madrid",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-09-05T23:23:57.246Z",
+      "notes": "EL Classico",
+      "position": {
+        "lat": "40.3774151754817",
+        "lng": "-3.691342131379847"
+      },
+      "id": 98443203
+    },
+    {
+      "cityName": "Amsterdam",
+      "country": "Netherlands (Kingdom of the)",
+      "emoji": "🇳🇱",
+      "date": "2024-09-05T23:24:15.316Z",
+      "notes": "The trip!",
+      "position": {
+        "lat": "52.36175127010866",
+        "lng": "4.8839090844320285"
+      },
+      "id": 98443204
+    },
+    {
+      "cityName": "Berlin",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2024-09-05T23:24:40.860Z",
+      "notes": "Well then...",
+      "position": {
+        "lat": "52.50932424932985",
+        "lng": "13.39562290306843"
+      },
+      "id": 98443205
+    },
+    {
+      "cityName": "Munich",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2024-09-05T23:25:17.579Z",
+      "notes": "Observatory",
+      "position": {
+        "lat": "48.133650769459265",
+        "lng": "11.501187807792926"
+      },
+      "id": 98443206
+    },
+    {
+      "cityName": "Prague",
+      "country": "Czechia",
+      "emoji": "🇨🇿",
+      "date": "2024-09-05T23:25:35.785Z",
+      "notes": "Stag and trip",
+      "position": {
+        "lat": "50.056603140546514",
+        "lng": "14.456701274151811"
+      },
+      "id": 98443207
+    },
+    {
+      "cityName": "Budapest",
+      "country": "Hungary",
+      "emoji": "🇭🇺",
+      "date": "2024-09-05T23:25:51.644Z",
+      "notes": "Lady liberty ",
+      "position": {
+        "lat": "47.487013141361906",
+        "lng": "19.038619911322456"
+      },
+      "id": 98443208
+    },
+    {
+      "cityName": "Vienna",
+      "country": "Austria",
+      "emoji": "🇦🇹",
+      "date": "2024-09-05T23:26:12.146Z",
+      "notes": "Just rich folks",
+      "position": {
+        "lat": "48.20625564450697",
+        "lng": "16.376291812213523"
+      },
+      "id": 98443209
+    },
+    {
+      "cityName": "Edinburgh",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2024-09-05T23:26:57.483Z",
+      "notes": "Loch Ness",
+      "position": {
+        "lat": "55.95184100897253",
+        "lng": "-3.1810574374992533"
+      },
+      "id": 98443210
+    },
+    {
+      "cityName": "Vilnius",
+      "country": "Lithuania",
+      "emoji": "🇱🇹",
+      "date": "2024-09-05T23:27:55.928Z",
+      "notes": "Footy ball",
+      "position": {
+        "lat": "54.645941898076984",
+        "lng": "25.285607111531395"
+      },
+      "id": 98443211
+    },
+    {
+      "cityName": "Palma",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-09-05T23:28:41.788Z",
+      "notes": "European tour",
+      "position": {
+        "lat": "39.565131977076085",
+        "lng": "2.6555934928702563"
+      },
+      "id": 98443212
+    },
+    {
+      "cityName": "Athens",
+      "country": "Greece",
+      "emoji": "🇬🇷",
+      "date": "2024-09-05T23:29:23.018Z",
+      "notes": "Blast from the past! with sweltering heat",
+      "position": {
+        "lat": "37.96755577052172",
+        "lng": "23.73790863969033"
+      },
+      "id": 98443213
     }
   ]
 }
