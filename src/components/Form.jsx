@@ -2,21 +2,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {useEffect, useState} from "react";
 import {useNavigate, useSearchParams} from "react-router-dom";
-import {useCitiesContext} from "../contexts/CitiesContext.jsx";
+import {useCitiesContext} from "../contexts/useCitiesContext.js";
 import {Button} from "./Button";
 import {BackButton} from "./BackButton";
 import {useUrlPosition} from "../hooks/useUrlPosition.js";
 import Message from "./Message.jsx";
 import Spinner from "./Spinner.jsx";
 import styles from "./Form.module.css";
-
-export function convertToEmoji(countryCode) {
-  const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char) => 127397 + char.charCodeAt());
-  return String.fromCodePoint(...codePoints);
-}
+import {convertToEmoji} from "../utils/util.js";
 
 const BASE_URL = 'https://api.bigdatacloud.net/data/reverse-geocode-client';
 
@@ -36,8 +29,6 @@ export function Form() {
     const [emoji, setEmoji] = useState();
     const [geocodingError, setGeocodingError] = useState("");
     const [isEditForm, setIsEditForm] = useState(false);
-
-
     /*
 
         @todo: REFACTOR TO USE REDUCERS.

@@ -2,7 +2,7 @@ import styles from "./Map.module.css"
 import {useNavigate} from "react-router-dom";
 import {MapContainer, Marker, Popup, TileLayer, useMap, useMapEvents} from "react-leaflet";
 import {useEffect, useState} from "react";
-import {useCitiesContext} from "../contexts/CitiesContext.jsx";
+import {useCitiesContext} from "../contexts/useCitiesContext.js";
 import {useGeolocation} from "../hooks/useGeolocation.js";
 import {Button} from "./Button";
 import {useUrlPosition} from "../hooks/useUrlPosition.js";

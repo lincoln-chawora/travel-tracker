@@ -1,7 +1,7 @@
 import styles from "./CountryList.module.css"
 import Spinner from "./Spinner.jsx";
 import CountryItem from "./CountryItem.jsx";
-import {useCitiesContext} from "../contexts/CitiesContext.jsx";
+import {useCitiesContext} from "../contexts/useCitiesContext.js";
 
 export function CountryList() {
     const {cities, isLoading} = useCitiesContext();

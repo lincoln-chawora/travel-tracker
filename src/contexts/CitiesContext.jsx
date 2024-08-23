@@ -1,7 +1,7 @@
-import {createContext, useContext, useEffect, useReducer} from "react";
+import {useEffect, useReducer} from "react";
 import {cityReducer} from "../reducers/cityReducer.js";
+import {CitiesContext} from "./useCitiesContext.js";
 
-const CitiesContext = createContext();
 const BASE_URL = 'http://localhost:9000/cities';
 
 const initialState = {
@@ -125,12 +125,4 @@ function CitiesProvider({children}) {
     )
 }
 
-function useCitiesContext() {
-    const context = useContext(CitiesContext);
-
-    if (context === undefined) throw Error('Cities context was used outside of post provider.');
-
-    return context;
-}
-
-export {CitiesProvider, useCitiesContext};
+export {CitiesProvider};
