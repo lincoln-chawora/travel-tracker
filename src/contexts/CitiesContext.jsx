@@ -1,4 +1,4 @@
-import {useEffect, useReducer} from "react";
+import {useCallback, useEffect, useReducer} from "react";
 import {cityReducer} from "../reducers/cityReducer.js";
 import {CitiesContext} from "./useCitiesContext.js";
 
@@ -6,13 +6,14 @@ const BASE_URL = 'http://localhost:9000/cities';
 
 const initialState = {
     cities: [],
+    citiesSort: true,
     isLoading: false,
     currentCity: {},
     error: ''
 }
 
 function CitiesProvider({children}) {
-    const [{cities, isLoading, currentCity}, dispatch] = useReducer(cityReducer, initialState);
+    const [{cities, isLoading, currentCity, error}, dispatch] = useReducer(cityReducer, initialState);
 
     useEffect(() => {
         const controller = new AbortController();
@@ -39,7 +40,8 @@ function CitiesProvider({children}) {
         }
     }, []);
 
-    async function getCity(id) {
+    // useCallback will memoize the getCity function so that it's only rendered when the currentCity.id value changes.
+    const getCity = useCallback(async function getCity(id) {
         if (Number(id) === currentCity.id) return;
 
         dispatch({type: 'loading'});
@@ -54,7 +56,7 @@ function CitiesProvider({children}) {
         } catch (error) {
             dispatch({type: 'rejected', payload: error.message});
         }
-    }
+    }, [currentCity.id]);
 
     async function deleteCity(id) {
         dispatch({type: 'loading'});
@@ -110,6 +112,10 @@ function CitiesProvider({children}) {
         }
     }
 
+    function sortByDate() {
+        dispatch({type: 'sortCitiesByDate'});
+    }
+
     return (
         <CitiesContext.Provider value={{
             cities,
@@ -118,6 +124,8 @@ function CitiesProvider({children}) {
             createCity,
             updateCity,
             deleteCity,
+            sortByDate,
+            error,
             currentCity
         }}>
             {children}

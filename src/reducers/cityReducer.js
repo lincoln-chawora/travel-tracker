@@ -5,6 +5,17 @@ export function cityReducer(state, action) {
                 ...state,
                 isLoading: true
             }
+        case 'sortCitiesByDate':
+            return {
+                ...state,
+                citiesSort: !state.citiesSort,
+                cities: state.cities.sort(function(a,b){
+                    // Turn your strings into dates, and then subtract them
+                    // to get a value that is either negative, positive, or zero.
+                    return state.citiesSort ? new Date(b.date) - new Date(a.date) : new Date(a.date) - new Date(b.date);
+                }),
+                isLoading: false
+            }
         case 'cities/loaded':
             return {
                 ...state,

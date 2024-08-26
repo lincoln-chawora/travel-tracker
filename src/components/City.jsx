@@ -26,7 +26,7 @@ export function City() {
     // Get city when id changes (change of page from url).
     useEffect(() => {
         getCity(id);
-    }, [id]);
+    }, [id, getCity]);
 
     const { cityName, emoji, date, notes } = currentCity;
 

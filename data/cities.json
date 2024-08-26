@@ -52,8 +52,8 @@
       "cityName": "Lisbon",
       "country": "Portugal",
       "emoji": "🇵🇹",
-      "date": "2024-09-05T23:17:57.114Z",
-      "notes": "Fun in cintra :)",
+      "date": "2023-12-31T00:17:57.000Z",
+      "notes": "Fun in cintra :))",
       "position": {
         "lat": "38.7321841303779",
         "lng": "-9.143117779159793"
@@ -64,7 +64,7 @@
       "cityName": "Madrid",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2024-09-05T23:23:57.246Z",
+      "date": "2022-10-20T23:23:57.000Z",
       "notes": "EL Classico",
       "position": {
         "lat": "40.3774151754817",
@@ -88,7 +88,7 @@
       "cityName": "Berlin",
       "country": "Germany",
       "emoji": "🇩🇪",
-      "date": "2024-09-05T23:24:40.860Z",
+      "date": "2023-12-13T00:24:40.000Z",
       "notes": "Well then...",
       "position": {
         "lat": "52.50932424932985",
@@ -100,7 +100,7 @@
       "cityName": "Munich",
       "country": "Germany",
       "emoji": "🇩🇪",
-      "date": "2024-09-05T23:25:17.579Z",
+      "date": "2024-05-03T23:25:17.000Z",
       "notes": "Observatory",
       "position": {
         "lat": "48.133650769459265",
@@ -124,7 +124,7 @@
       "cityName": "Budapest",
       "country": "Hungary",
       "emoji": "🇭🇺",
-      "date": "2024-09-05T23:25:51.644Z",
+      "date": "2024-04-03T23:25:51.000Z",
       "notes": "Lady liberty ",
       "position": {
         "lat": "47.487013141361906",
@@ -136,7 +136,7 @@
       "cityName": "Vienna",
       "country": "Austria",
       "emoji": "🇦🇹",
-      "date": "2024-09-05T23:26:12.146Z",
+      "date": "2024-03-31T23:26:12.000Z",
       "notes": "Just rich folks",
       "position": {
         "lat": "48.20625564450697",
@@ -148,7 +148,7 @@
       "cityName": "Edinburgh",
       "country": "United Kingdom of Great Britain and Northern Ireland (the)",
       "emoji": "🇬🇧",
-      "date": "2024-09-05T23:26:57.483Z",
+      "date": "2023-08-17T23:26:57.000Z",
       "notes": "Loch Ness",
       "position": {
         "lat": "55.95184100897253",
@@ -160,7 +160,7 @@
       "cityName": "Vilnius",
       "country": "Lithuania",
       "emoji": "🇱🇹",
-      "date": "2024-09-05T23:27:55.928Z",
+      "date": "2019-08-22T23:27:55.000Z",
       "notes": "Footy ball",
       "position": {
         "lat": "54.645941898076984",
@@ -172,7 +172,7 @@
       "cityName": "Palma",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2024-09-05T23:28:41.788Z",
+      "date": "2017-06-16T23:28:41.000Z",
       "notes": "European tour",
       "position": {
         "lat": "39.565131977076085",
@@ -184,37 +184,13 @@
       "cityName": "Athens",
       "country": "Greece",
       "emoji": "🇬🇷",
-      "date": "2024-09-05T23:29:23.018Z",
+      "date": "2022-06-09T23:29:23.000Z",
       "notes": "Blast from the past! with sweltering heat",
       "position": {
         "lat": "37.96755577052172",
         "lng": "23.73790863969033"
       },
       "id": 98443213
-    },
-    {
-      "cityName": "Tura",
-      "country": "Russian Federation (the)",
-      "emoji": "🇷🇺",
-      "date": "2024-09-06T00:04:05.384Z",
-      "notes": " Motha",
-      "position": {
-        "lat": "60.91544307233879",
-        "lng": "99.34476331470657"
-      },
-      "id": 98443214
-    },
-    {
-      "cityName": "Los Navalucillos",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-09-06T00:47:24.730Z",
-      "notes": "",
-      "position": {
-        "lat": "39.67021940477495",
-        "lng": "-4.633741108107819"
-      },
-      "id": 98443215
     }
   ]
 }

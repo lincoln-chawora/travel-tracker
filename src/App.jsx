@@ -1,20 +1,24 @@
+import {lazy, Suspense} from "react";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
-import Pricing from "./pages/Pricing";
-import Homepage from "./pages/Homepage";
-import Product from "./pages/Product";
-import PageNotFound from "./pages/PageNotFound";
-import Login from "./pages/Login";
-import {AppLayoutPage} from "./pages/AppLayoutPage";
 import {CityList} from "./components/CityList";
 import {CountryList} from "./components/CountryList";
 import {City} from "./components/City.jsx";
 import {Form} from "./components/Form.jsx";
 import {CitiesProvider} from "./contexts/CitiesContext";
+import SpinnerFullPage from "./components/SpinnerFullPage.jsx";
+
+const Homepage = lazy(() => import("./pages/Homepage"));
+const Product = lazy(() => import("./pages/Product"));
+const AppLayoutPage = lazy(() => import("./pages/AppLayoutPage"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const PageNotFound = lazy(() => import("./pages/PageNotFound"));
+const Login = lazy(() => import("./pages/Login"));
 
 function App() {
   return (
     <CitiesProvider>
         <BrowserRouter>
+            <Suspense fallback={<SpinnerFullPage />}>
             <Routes>
                 <Route index element={<Homepage />} />
                 <Route path="product" element={<Product />} />
@@ -30,6 +34,7 @@ function App() {
                 </Route>
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
+            </Suspense>
         </BrowserRouter>
     </CitiesProvider>
   )

@@ -115,7 +115,7 @@ export function Form() {
           <div className={styles.row}>
             <label htmlFor="date">When did you go to {cityName}?</label>
 
-              <DatePicker id="date" onChange={date => setDate(date)} selected={date} dateFormat={'dd/MM/yyy'} />
+              <DatePicker id="date" onChange={date => setDate(date)} selected={date} dateFormat={'dd/MM/yyyy'} />
           </div>
 
           <div className={styles.row}>

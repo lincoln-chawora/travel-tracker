@@ -3,7 +3,7 @@ import {Map} from "../components/Map";
 
 import styles from "./AppLayout.module.css";
 
-export function AppLayoutPage() {
+export default function AppLayoutPage() {
     return (
         <div className={styles.app}>
             <Sidebar />
