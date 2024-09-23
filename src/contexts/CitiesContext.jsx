@@ -1,10 +1,9 @@
 import {useCallback, useEffect, useReducer} from "react";
 import {cityReducer} from "../reducers/cityReducer.js";
 import {CitiesContext} from "./useCitiesContext.js";
+import {BASE_URL} from "../utils/util.js";
 
-const BASE_URL = 'http://localhost:9000/cities';
-
-const initialState = {
+export const initialState = {
     cities: [],
     citiesSort: true,
     isLoading: false,
@@ -40,7 +39,6 @@ function CitiesProvider({children}) {
         }
     }, []);
 
-    // useCallback will memoize the getCity function so that it's only rendered when the currentCity.id value changes.
     const getCity = useCallback(async function getCity(id) {
         if (Number(id) === currentCity.id) return;
 
@@ -58,60 +56,6 @@ function CitiesProvider({children}) {
         }
     }, [currentCity.id]);
 
-    async function deleteCity(id) {
-        dispatch({type: 'loading'});
-        try {
-            const response = await fetch(`${BASE_URL}${id ? `/${id}` : ''}`, {
-                method: "DELETE",
-            });
-
-            if (!response.ok) throw new Error('Something went wrong with deleting city.');
-            dispatch({type: 'city/deleted', payload: id});
-        } catch (error) {
-            dispatch({type: 'rejected', payload: error.message});
-        }
-    }
-
-    async function createCity(newCity) {
-        dispatch({type: 'loading'});
-        try {
-            const response = await fetch(`${BASE_URL}`, {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newCity)
-            });
-
-            if (!response.ok) throw new Error('Something went wrong with created city.');
-
-            const data = await response.json();
-            dispatch({type: 'city/created', payload: data});
-        } catch (error) {
-            dispatch({type: 'rejected', payload: error.message});
-        }
-    }
-
-    async function updateCity(id, updatedCity) {
-        dispatch({type: 'loading'});
-        try {
-            const response = await fetch(`${BASE_URL}${id ? `/${id}` : ''}`, {
-                method: "PUT",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(updatedCity)
-            });
-
-            if (!response.ok) throw new Error('Something went wrong with updating city.');
-
-            const data = await response.json();
-            dispatch({type: 'city/updated', payload: data});
-        } catch (error) {
-            dispatch({type: 'rejected', payload: error.message});
-        }
-    }
-
     function sortByDate() {
         dispatch({type: 'sortCitiesByDate'});
     }
@@ -121,9 +65,7 @@ function CitiesProvider({children}) {
             cities,
             isLoading,
             getCity,
-            createCity,
-            updateCity,
-            deleteCity,
+            dispatch,
             sortByDate,
             error,
             currentCity

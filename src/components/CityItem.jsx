@@ -1,6 +1,7 @@
 import styles from "./CityItem.module.css";
 import {Link} from "react-router-dom";
 import {useCitiesContext} from "../contexts/useCitiesContext.js";
+import {deleteCity} from "../services/apiCities.js";
 
 const formatDate = (date) =>
     new Intl.DateTimeFormat("en", {
@@ -10,13 +11,14 @@ const formatDate = (date) =>
     }).format(new Date(date));
 
 function CityItem({ city }) {
-    const {currentCity, deleteCity} = useCitiesContext();
+    const {currentCity, dispatch} = useCitiesContext();
+
     const {cityName, emoji, date, id, position } = city;
 
     async function handleDelete(e) {
         e.preventDefault();
 
-        await deleteCity(id);
+        await deleteCity(id, dispatch);
     }
 
   return (

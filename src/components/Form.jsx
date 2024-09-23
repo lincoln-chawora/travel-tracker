@@ -1,7 +1,7 @@
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import {useEffect, useState} from "react";
 import {useNavigate, useSearchParams} from "react-router-dom";
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
 import {useCitiesContext} from "../contexts/useCitiesContext.js";
 import {Button} from "./Button";
 import {BackButton} from "./BackButton";
@@ -10,6 +10,7 @@ import Message from "./Message.jsx";
 import Spinner from "./Spinner.jsx";
 import styles from "./Form.module.css";
 import {convertToEmoji} from "../utils/util.js";
+import {createCity, updateCity} from "../services/apiCities.js";
 
 const BASE_URL = 'https://api.bigdatacloud.net/data/reverse-geocode-client';
 
@@ -19,7 +20,7 @@ export function Form() {
 
     // Get lat and lng from url when form loads.
     const [lat, lng] = useUrlPosition();
-    const {createCity, updateCity, currentCity, isLoading} = useCitiesContext();
+    const {dispatch, currentCity, isLoading} = useCitiesContext();
     const navigate = useNavigate()
     const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
     const [cityName, setCityName] = useState("");
@@ -29,11 +30,13 @@ export function Form() {
     const [emoji, setEmoji] = useState();
     const [geocodingError, setGeocodingError] = useState("");
     const [isEditForm, setIsEditForm] = useState(false);
+
     /*
 
         @todo: REFACTOR TO USE REDUCERS.
 
      */
+
     // When lat and lng update (as a result of click on map) fetch data (city, country ect) relating to that location.
     useEffect(() => {
         if (cityID) {
@@ -87,9 +90,9 @@ export function Form() {
         };
 
         if (isEditForm && cityID) {
-            await updateCity(cityID, cityData);
+            await updateCity(cityID, cityData, dispatch);
         } else {
-            await createCity(cityData);
+            await createCity(cityData, dispatch);
         }
         navigate('/app/cities');
     }

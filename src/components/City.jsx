@@ -1,19 +1,12 @@
+import {useEffect} from "react";
 import styles from "./City.module.css";
 import {useNavigate, useParams} from "react-router-dom";
 import {useCitiesContext} from "../contexts/useCitiesContext.js";
-import {useEffect} from "react";
 import Spinner from "./Spinner.jsx";
 import {BackButton} from "./BackButton";
 import {Button} from "./Button";
 import {useUrlPosition} from "../hooks/useUrlPosition.js";
-
-const formatDate = (date) =>
-  new Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    weekday: "long",
-  }).format(new Date(date));
+import {formatDate} from "../utils/util.js";
 
 export function City() {
     // Url param defined on route path such as: <Route path="cities/:id" />
