@@ -1,18 +1,11 @@
 import {useCallback, useEffect, useReducer} from "react";
 import {cityReducer} from "../reducers/cityReducer.js";
 import {CitiesContext} from "./useCitiesContext.js";
-import {BASE_URL} from "../utils/util.js";
+import {BASE_URL, initialCityState} from "../utils/util.js";
 
-export const initialState = {
-    cities: [],
-    citiesSort: true,
-    isLoading: false,
-    currentCity: {},
-    error: ''
-}
 
 function CitiesProvider({children}) {
-    const [{cities, isLoading, currentCity, error}, dispatch] = useReducer(cityReducer, initialState);
+    const [{cities, isLoading, currentCity, error}, dispatch] = useReducer(cityReducer, initialCityState);
 
     useEffect(() => {
         const controller = new AbortController();
