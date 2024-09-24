@@ -56,3 +56,18 @@ export async function updateCity(id, updatedCity, dispatch) {
         dispatch({type: 'rejected', payload: error.message});
     }
 }
+
+export async function getAllCities(dispatch) {
+    try {
+        dispatch({type: 'loading'});
+        const response = await fetch(`${BASE_URL}`);
+
+        if (!response.ok) throw new Error('Something went wrong with fetching cities.');
+
+        const data = await response.json();
+
+        dispatch({type: 'cities/loaded', payload: data});
+    } catch (error) {
+        dispatch({type: 'rejected', payload: error.message});
+    }
+}
