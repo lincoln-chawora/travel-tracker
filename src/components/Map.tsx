@@ -9,7 +9,7 @@ import {useUrlPosition} from "../hooks/useUrlPosition";
 import styles from "./Map.module.css"
 
 
-export function Map() {
+const Map: React.FC = () => {
     const {cities} = useCitiesContext();
     const [mapPosition, setMapPosition] = useState<[number, number]>([40, 0]);
     const {isLoading: isLoadingPosition, position: geolocationPosition, getPosition} = useGeolocation();
@@ -75,3 +75,5 @@ function DetectClick() {
 
     return null;
 }
+
+export default Map

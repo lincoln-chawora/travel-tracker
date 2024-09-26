@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import PageNav from "../components/PageNav";
 import React from "react";
 
-const Homepage = () => {
+const Homepage: React.FC = () => {
     return (
         <main className={styles.homepage}>
             <PageNav />

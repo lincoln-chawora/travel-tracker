@@ -1,8 +1,10 @@
 import styles from './Sidebar.module.css'
-import Logo from "./Logo.jsx";
-import {AppNav} from "./AppNav";
+import Logo from "./Logo.js";
+import AppNav from "./AppNav";
 import {Outlet} from "react-router-dom";
-export function Sidebar() {
+import React from 'react';
+
+const Sidebar: React.FC = () => {
     return (
         <div className={styles.sidebar}>
             <Logo />
@@ -17,3 +19,5 @@ export function Sidebar() {
         </div>
     )
 }
+
+export default Sidebar;

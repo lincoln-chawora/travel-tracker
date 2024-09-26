@@ -15,3 +15,8 @@ export interface FormData {
     date: string;
     notes: string;
 }
+
+export interface Country {
+    country: string;
+    emoji: string;
+}

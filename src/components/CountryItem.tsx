@@ -1,6 +1,11 @@
+import React from "react";
 import styles from "./CountryItem.module.css";
+import { Country } from "../reducers/data.modals";
 
-function CountryItem({ country }) {
+interface CountryItemProps {
+  country: Country
+}
+const CountryItem: React.FC<CountryItemProps> = ({ country }) => {
   return (
     <li className={styles.countryItem}>
       <span>{country.emoji}</span>

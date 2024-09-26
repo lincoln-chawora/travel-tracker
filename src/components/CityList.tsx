@@ -1,11 +1,12 @@
 import styles from "./CityList.module.css"
-import CityItem from "./CityItem.jsx";
+import CityItem from "./CityItem.js";
 import Spinner from "./Spinner";
 import Message from "./Message";
-import {useCitiesContext} from "../contexts/useCitiesContext";
+import {useCitiesContext} from "../contexts/useCitiesContext.js";
+import React from "react";
 
-export function CityList() {
-    const {cities, isLoading, sortByDate, dispatch} = useCitiesContext();
+export const CityList: React.FC = () => {
+    const {cities, isLoading, dispatch} = useCitiesContext();
 
     if (isLoading) return <Spinner />;
 

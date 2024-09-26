@@ -2,10 +2,10 @@ import {lazy, Suspense} from "react";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import {CityList} from "./components/CityList";
 import {CountryList} from "./components/CountryList";
-import {City} from "./components/City.jsx";
-import {Form} from "./components/Form.js";
+import City from "./components/City";
+import Form from "./components/Form";
 import {CitiesProvider} from "./contexts/CitiesContext";
-import SpinnerFullPage from "./components/SpinnerFullPage.jsx";
+import SpinnerFullPage from "./components/SpinnerFullPage";
 
 const Homepage = lazy(() => import("./pages/Homepage"));
 const Product = lazy(() => import("./pages/Product"));

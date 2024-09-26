@@ -1,9 +1,10 @@
 import styles from "./CountryList.module.css"
-import Spinner from "./Spinner";
-import CountryItem from "./CountryItem.jsx";
-import {useCitiesContext} from "../contexts/useCitiesContext";
+import Spinner from "./Spinner.js";
+import CountryItem from "./CountryItem.js";
+import {useCitiesContext} from "../contexts/useCitiesContext.js";
+import React from "react";
 
-export function CountryList() {
+export const CountryList: React.FC = () => {
     const {cities, isLoading} = useCitiesContext();
 
     if (isLoading) return <Spinner />;

@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import styles from "./City.module.css";
 import {useNavigate, useParams} from "react-router-dom";
 import {useCitiesContext} from "../contexts/useCitiesContext";
@@ -8,9 +8,10 @@ import Button from "./Button";
 import {useUrlPosition} from "../hooks/useUrlPosition";
 import {formatDate} from "../utils/util";
 
-export function City() {
+const City: React.FC = () => {
     // Url param defined on route path such as: <Route path="cities/:id" />
-    const {id} = useParams();
+    let {id} = useParams();
+
     const navigate = useNavigate();
     const [mapLat, mapLng] = useUrlPosition();
 
@@ -18,14 +19,18 @@ export function City() {
 
     // Get city when id changes (change of page from url).
     useEffect(() => {
-        getCity(id);
+      if (id) {
+        getCity(+id);
+      }
     }, [id, getCity]);
-
-    const { cityName, emoji, date, notes } = currentCity;
 
     function handleEdit() {
         navigate(`/app/form?lat=${mapLat}&lng=${mapLng}&cityID=${id}`)
     }
+
+    if ('cityName' in currentCity === false) return;
+
+    let { cityName, emoji, date, notes } = currentCity;
 
     if (isLoading) return <Spinner />;
 
@@ -40,7 +45,7 @@ export function City() {
 
           <div className={styles.row}>
             <h6>You went to {cityName} on</h6>
-            <p>{formatDate(date || null)}</p>
+            <p>{formatDate(date)}</p>
           </div>
 
           {notes && (
@@ -64,8 +69,10 @@ export function City() {
           <div className={styles.btnContainer}>
               <BackButton />
 
-              {mapLat && mapLat && <Button type='primary' onClick={e => handleEdit(e)}>Edit</Button>}
+              {mapLat && mapLat && <Button type='primary' onClick={handleEdit}>Edit</Button>}
           </div>
         </div>
     );
 }
+
+export default City;

@@ -1,7 +1,8 @@
+import React from "react";
 import styles from "./AppNav.module.css"
 import {NavLink} from "react-router-dom";
 
-export function AppNav() {
+const AppNav: React.FC = () => {
     return (
         <nav className={styles.nav}>
             <ul>
@@ -15,3 +16,5 @@ export function AppNav() {
         </nav>
     )
 }
+
+export default AppNav;

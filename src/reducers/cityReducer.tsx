@@ -10,7 +10,7 @@ type CityState = {
 
 export type CITY_ACTION_TYPE =
     | { type: "loading" }
-    | { type: "sortCitiesByDate"; payload: boolean }
+    | { type: "sortCitiesByDate" }
     | { type: "depositMoney"; payload: number }
     | { type: "cities/loaded"; payload: City[] }
     | { type: "city/created"; payload: City }

@@ -1,8 +1,9 @@
 // Uses the same styles as Product
 import styles from "./Product.module.css";
 import PageNav from "../components/PageNav";
+import React from "react";
 
-export default function Product() {
+ const Pricing: React.FC = () => {
     return (
         <main className={styles.product}>
             <PageNav />
@@ -24,3 +25,5 @@ export default function Product() {
         </main>
     );
 }
+
+export default Pricing;

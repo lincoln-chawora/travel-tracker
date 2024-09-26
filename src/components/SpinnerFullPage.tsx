@@ -1,7 +1,8 @@
+import React from "react";
 import Spinner from "./Spinner";
 import styles from "./SpinnerFullPage.module.css";
 
-function SpinnerFullPage() {
+const SpinnerFullPage: React.FC = () => {
   return (
     <div className={styles.spinnerFullpage}>
       <Spinner />

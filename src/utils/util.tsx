@@ -28,7 +28,7 @@ export function convertToEmoji(countryCode: string) {
     return String.fromCodePoint(...codePoints);
 }
 
-export const formatDate = (date: Date) =>
+export const formatDate = (date: string) =>
     new Intl.DateTimeFormat("en", {
         day: "numeric",
         month: "long",

@@ -15,8 +15,7 @@ const CitiesProvider: React.FC<CitiesProviderProps> = ({children}) => {
     }, []);
     
     const getCity = useCallback(async function getCity(id: number) {    
-        if (!currentCity) return;
-        if (Number(id) === currentCity!.id) return;
+        if (id === currentCity!.id) return;
     
         dispatch({type: 'loading'});
         try {

@@ -15,7 +15,7 @@ import {useEditCityForm} from "../hooks/useEditCityForm";
 import {useGeocoding} from "../hooks/useGeocoding";
 import {getFormValues, initialFormState} from "../utils/util";
 
-export function Form() {
+const Form: React.FC = () => {
     const [urlParams] = useSearchParams();
     const cityID = Number(urlParams.get('cityID'));
     const isEditForm = !!cityID;
@@ -126,3 +126,5 @@ export function Form() {
         </form>
     );
 }
+
+export default Form;
