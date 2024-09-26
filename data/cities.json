@@ -2,10 +2,10 @@
   "cities": [
     {
       "cityName": "Paris",
+      "notes": "When to the olympics and it was incredible! Yay",
+      "date": "2024-07-19T23:00:00.000Z",
       "country": "France",
       "emoji": "🇫🇷",
-      "date": "2024-07-20T15:55:31.000Z",
-      "notes": "When to the olympics and it was incredible!",
       "position": {
         "lat": "48.86305120753637",
         "lng": "2.363243390964516"

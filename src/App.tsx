@@ -3,7 +3,7 @@ import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import {CityList} from "./components/CityList";
 import {CountryList} from "./components/CountryList";
 import {City} from "./components/City.jsx";
-import {Form} from "./components/Form.jsx";
+import {Form} from "./components/Form.js";
 import {CitiesProvider} from "./contexts/CitiesContext";
 import SpinnerFullPage from "./components/SpinnerFullPage.jsx";
 

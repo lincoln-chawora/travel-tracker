@@ -1,4 +1,25 @@
-export function cityReducer(state, action) {
+import { City } from "./data.modals";
+
+type CityState = {
+    cities: City[];
+    currentCity: City | {};
+    error: string;
+    citiesSort: boolean;
+    isLoading: boolean;
+}
+
+export type CITY_ACTION_TYPE =
+    | { type: "loading" }
+    | { type: "sortCitiesByDate"; payload: boolean }
+    | { type: "depositMoney"; payload: number }
+    | { type: "cities/loaded"; payload: City[] }
+    | { type: "city/created"; payload: City }
+    | { type: "city/updated"; payload: City }
+    | { type: "city/deleted"; payload: number }
+    | { type: "city/loaded"; payload: City }
+    | { type: "rejected"; payload: string }
+
+export const cityReducer = (state: CityState, action: CITY_ACTION_TYPE): CityState => {
     switch (action.type) {
         case 'loading':
             return {
@@ -10,9 +31,9 @@ export function cityReducer(state, action) {
                 ...state,
                 citiesSort: !state.citiesSort,
                 cities: state.cities.sort(function(a,b){
-                    // Turn your strings into dates, and then subtract them
+                    // Turn strings into dates and then numbers, and then subtract them
                     // to get a value that is either negative, positive, or zero.
-                    return state.citiesSort ? new Date(b.date) - new Date(a.date) : new Date(a.date) - new Date(b.date);
+                    return state.citiesSort ? +new Date(b.date) - +new Date(a.date) : +new Date(a.date) - +new Date(b.date);
                 }),
                 isLoading: false
             }

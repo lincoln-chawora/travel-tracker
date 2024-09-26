@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import {convertToEmoji, GEOCODE_URL} from '../utils/util.js';
+import {convertToEmoji, GEOCODE_URL, getErrorMessage} from '../utils/util';
 
-export function useGeocoding(lat, lng, cityID) {
-    const [cityName, setCityName] = useState("");
-    const [notes, setNotes] = useState("");
-    const [date, setDate] = useState(new Date());
-    const [country, setCountry] = useState("");
-    const [emoji, setEmoji] = useState("");
-    const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
-    const [geocodingError, setGeocodingError] = useState("");
+export function useGeocoding(lat: string, lng: string, cityID: number) {
+    const [cityName, setCityName] = useState<string>("");
+    const [notes, setNotes] = useState<string>("");
+    const [date, setDate] = useState<string>(new Date().toDateString());
+    const [country, setCountry] = useState<string>("");
+    const [emoji, setEmoji] = useState<string>("");
+    const [isLoadingGeocoding, setIsLoadingGeocoding] = useState<boolean>(false);
+    const [geocodingError, setGeocodingError] = useState<string>("");
 
     useEffect(() => {
         if ((!lat && !lng) || cityID) return;
@@ -27,7 +27,7 @@ export function useGeocoding(lat, lng, cityID) {
                 setCountry(data.countryName);
                 setEmoji(convertToEmoji(data.countryCode));
             } catch (error) {
-                setGeocodingError(error.message);
+                setGeocodingError(getErrorMessage(error));
             } finally {
                 setIsLoadingGeocoding(false);
             }

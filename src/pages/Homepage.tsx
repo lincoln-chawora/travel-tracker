@@ -1,8 +1,9 @@
 import styles from "./Homepage.module.css";
 import {Link} from "react-router-dom";
-import {PageNav} from "../components/PageNav";
+import PageNav from "../components/PageNav";
+import React from "react";
 
-export default function Homepage() {
+const Homepage = () => {
     return (
         <main className={styles.homepage}>
             <PageNav />
@@ -23,3 +24,5 @@ export default function Homepage() {
         </main>
     );
 }
+
+export default Homepage;

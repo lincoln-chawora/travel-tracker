@@ -1,12 +1,12 @@
 import {useEffect} from "react";
 import styles from "./City.module.css";
 import {useNavigate, useParams} from "react-router-dom";
-import {useCitiesContext} from "../contexts/useCitiesContext.js";
-import Spinner from "./Spinner.jsx";
+import {useCitiesContext} from "../contexts/useCitiesContext";
+import Spinner from "./Spinner";
 import {BackButton} from "./BackButton";
-import {Button} from "./Button";
-import {useUrlPosition} from "../hooks/useUrlPosition.js";
-import {formatDate} from "../utils/util.js";
+import Button from "./Button";
+import {useUrlPosition} from "../hooks/useUrlPosition";
+import {formatDate} from "../utils/util";
 
 export function City() {
     // Url param defined on route path such as: <Route path="cities/:id" />

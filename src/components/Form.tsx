@@ -1,23 +1,23 @@
-import {useEffect, useReducer} from "react";
+import React, {useEffect, useReducer} from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { useCitiesContext } from "../contexts/useCitiesContext.js";
-import { Button } from "./Button";
+import Button from "./Button.js";
 import { BackButton } from "./BackButton";
-import { useUrlPosition } from "../hooks/useUrlPosition.js";
-import Message from "./Message.jsx";
-import Spinner from "./Spinner.jsx";
+import { useUrlPosition } from "../hooks/useUrlPosition";
+import Message from "./Message";
+import Spinner from "./Spinner";
 import styles from "./Form.module.css";
 import { createCity, updateCity } from "../services/apiCities.js";
 import {formReducer} from "../reducers/formReducer.js";
-import {useEditCityForm} from "../hooks/useEditCityForm.js";
-import {useGeocoding} from "../hooks/useGeocoding.js";
-import {formatDate, getFormValues, initialFormState} from "../utils/util.js";
+import {useEditCityForm} from "../hooks/useEditCityForm";
+import {useGeocoding} from "../hooks/useGeocoding";
+import {getFormValues, initialFormState} from "../utils/util";
 
 export function Form() {
     const [urlParams] = useSearchParams();
-    const cityID = urlParams.get('cityID');
+    const cityID = Number(urlParams.get('cityID'));
     const isEditForm = !!cityID;
 
     const [lat, lng] = useUrlPosition();
@@ -25,15 +25,26 @@ export function Form() {
     const navigate = useNavigate();
 
     const [state, dispatchForm] = useReducer(formReducer, initialFormState);
-    // Use custom geocoding hook
-    let { cityName, country, emoji, setCityName, notes, setNotes, date, setDate, isLoadingGeocoding, geocodingError } = useGeocoding(lat, lng, cityID);
+    
+    let { 
+        cityName, 
+        country,
+        emoji,
+        setCityName,
+        notes,
+        setNotes,
+        date,
+        setDate,
+        isLoadingGeocoding,
+        geocodingError 
+    } = useGeocoding(lat!, lng!, cityID!);
 
     if (isEditForm) {
         ({ cityName, country, emoji, date } = state);
     }
 
     // Use custom hook for edit mode
-    useEditCityForm(cityID, currentCity, dispatchForm);
+    useEditCityForm(cityID, currentCity!, dispatchForm);
 
     useEffect(() => {
         if (isEditForm) {
@@ -42,18 +53,24 @@ export function Form() {
     }, [isEditForm, state.notes]);
 
     // Handle form submission
-    async function handleSubmit(e) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
-        const values = getFormValues(e.target);
+        // Cast e.target to HTMLFormElement.
+        const form = e.target as HTMLFormElement;
+        const values = getFormValues(form);
 
-        if (!values) return;
+        if (!values || !lat || !lng) return;
 
-        const convertedDate = new Date(values.date);
+        const { cityName, notes, date: newDate, ...otherValues } = values;
+
+        const date = new Date(newDate).toISOString();
 
         const cityData = {
-            ...values,
-            date: convertedDate,
+            ...otherValues,
+            cityName,
+            notes,
+            date,
             country,
             emoji,
             position: { lat, lng },
@@ -87,8 +104,8 @@ export function Form() {
                 <label htmlFor="date">When did you go to {cityName}?</label>
                 <DatePicker
                     id="date"
-                    onChange={(date) => setDate(d => date)}
-                    selected={date}
+                    onChange={(date) => setDate(date ? date.toISOString() : new Date().toISOString())}
+                    selected={new Date(date)}
                     dateFormat={'MM/dd/yyyy'}
                 />
             </div>

@@ -1,8 +1,8 @@
 import styles from "./CityItem.module.css";
 import {Link} from "react-router-dom";
-import {useCitiesContext} from "../contexts/useCitiesContext.js";
-import {deleteCity} from "../services/apiCities.js";
-import {formatDate} from "../utils/util.js";
+import {useCitiesContext} from "../contexts/useCitiesContext";
+import {deleteCity} from "../services/apiCities";
+import {formatDate} from "../utils/util";
 
 function CityItem({ city }) {
     const {currentCity, dispatch} = useCitiesContext();

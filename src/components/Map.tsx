@@ -1,24 +1,28 @@
-import styles from "./Map.module.css"
 import {useNavigate} from "react-router-dom";
 import {MapContainer, Marker, Popup, TileLayer, useMap, useMapEvents} from "react-leaflet";
-import {useEffect, useState} from "react";
-import {useCitiesContext} from "../contexts/useCitiesContext.js";
-import {useGeolocation} from "../hooks/useGeolocation.js";
-import {Button} from "./Button";
-import {useUrlPosition} from "../hooks/useUrlPosition.js";
+import { LatLngExpression } from "leaflet";
+import React, {useEffect, useState} from "react";
+import {useCitiesContext} from "../contexts/useCitiesContext";
+import {useGeolocation} from "../hooks/useGeolocation";
+import Button from "./Button";
+import {useUrlPosition} from "../hooks/useUrlPosition";
+import styles from "./Map.module.css"
+
 
 export function Map() {
     const {cities} = useCitiesContext();
-    const [mapPosition, setMapPosition] = useState([40, 0]);
+    const [mapPosition, setMapPosition] = useState<[number, number]>([40, 0]);
     const {isLoading: isLoadingPosition, position: geolocationPosition, getPosition} = useGeolocation();
     const [mapLat, mapLng] = useUrlPosition();
 
     useEffect(() => {
-        if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
+        if (mapLat && mapLng) setMapPosition([+mapLat, +mapLng]);
     }, [mapLat, mapLng]);
 
     useEffect(() => {
-        if (geolocationPosition) setMapPosition([geolocationPosition.lat, geolocationPosition.lng]);
+        if (geolocationPosition) {
+            setMapPosition([geolocationPosition.lat, geolocationPosition.lng]);
+        }
     }, [geolocationPosition]);
 
     return (
@@ -33,7 +37,7 @@ export function Map() {
                     url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
                 />
                 {cities.map((city) => (
-                    <Marker key={city.id} position={[city.position.lat, city.position.lng]}>
+                    <Marker key={city.id} position={[+city.position.lat, +city.position.lng]}>
                         <Popup>
                             <span>{city.emoji}</span>
                             <span>{city.cityName}</span>
@@ -48,9 +52,14 @@ export function Map() {
     )
 }
 
-function ChangeCenter({position}) {
+const ZOOM_POSITION = 4;
+
+interface ChangeCenterProps {
+    position: LatLngExpression;
+}
+const ChangeCenter: React.FC<ChangeCenterProps> = ({position}) => {
     const map = useMap();
-    map.setView(position);
+    map.setView(position, ZOOM_POSITION);
 
     return null;
 }
@@ -62,5 +71,7 @@ function DetectClick() {
         click: (e) => {
             navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`)
         },
-    })
+    });
+
+    return null;
 }

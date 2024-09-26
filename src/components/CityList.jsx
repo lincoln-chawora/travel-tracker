@@ -1,11 +1,11 @@
 import styles from "./CityList.module.css"
 import CityItem from "./CityItem.jsx";
-import Spinner from "./Spinner.jsx";
-import Message from "./Message.jsx";
-import {useCitiesContext} from "../contexts/useCitiesContext.js";
+import Spinner from "./Spinner";
+import Message from "./Message";
+import {useCitiesContext} from "../contexts/useCitiesContext";
 
 export function CityList() {
-    const {cities, isLoading, sortByDate} = useCitiesContext();
+    const {cities, isLoading, sortByDate, dispatch} = useCitiesContext();
 
     if (isLoading) return <Spinner />;
 
@@ -13,7 +13,7 @@ export function CityList() {
     if (!cities.length) return <Message message="Add your first city by cling on a city on the map" />
 
     function handleSort() {
-        sortByDate();
+        dispatch({type: 'sortCitiesByDate'});
     }
 
     return (
