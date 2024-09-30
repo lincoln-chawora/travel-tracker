@@ -13,10 +13,8 @@ const CitiesProvider: React.FC<CitiesProviderProps> = ({children}) => {
     useEffect(() => {
         getAllCities(dispatch);
     }, []);
-    
-    const getCity = useCallback(async function getCity(id: number) {    
-        if (id === currentCity!.id) return;
-    
+
+    const getCity = useCallback(async function getCity(id: number) { 
         dispatch({type: 'loading'});
         try {
             const response = await fetch(`${BASE_URL}${id ? `/${id}` : ''}`);
@@ -30,7 +28,7 @@ const CitiesProvider: React.FC<CitiesProviderProps> = ({children}) => {
         } catch (error) {
             dispatch({type: 'rejected', payload: getErrorMessage(error)});
         }
-    }, [currentCity!.id]);
+    }, []);
 
 
     return (

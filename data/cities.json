@@ -98,10 +98,10 @@
     },
     {
       "cityName": "Munich",
+      "notes": "Observatory and the stars",
+      "date": "2024-05-03T23:00:00.000Z",
       "country": "Germany",
       "emoji": "🇩🇪",
-      "date": "2024-05-03T23:25:17.000Z",
-      "notes": "Observatory",
       "position": {
         "lat": "48.133650769459265",
         "lng": "11.501187807792926"

@@ -1,3 +1,5 @@
+import { City } from "../reducers/data.modals";
+
 export const BASE_URL = 'http://localhost:9000/cities';
 export const GEOCODE_URL = 'https://api.bigdatacloud.net/data/reverse-geocode-client';
 
@@ -9,7 +11,6 @@ export const initialCityState = {
     error: ''
 }
 
-// Initial state for form data
 export const initialFormState = {
     cityName: "",
     country: "",
@@ -59,3 +60,7 @@ export function getErrorMessage(error: unknown) {
 export function isEmptyObj(obj: object) {
     return Object.keys(obj).length === 0;
 }
+
+export const isCity = (city: any): city is City => {
+    return city && typeof city === 'object' && 'cityName' in city;
+};

@@ -6,7 +6,7 @@ import Spinner from "./Spinner";
 import {BackButton} from "./BackButton";
 import Button from "./Button";
 import {useUrlPosition} from "../hooks/useUrlPosition";
-import {formatDate} from "../utils/util";
+import {formatDate, isCity} from "../utils/util";
 
 const City: React.FC = () => {
     // Url param defined on route path such as: <Route path="cities/:id" />
@@ -28,7 +28,7 @@ const City: React.FC = () => {
         navigate(`/app/form?lat=${mapLat}&lng=${mapLng}&cityID=${id}`)
     }
 
-    if ('cityName' in currentCity === false) return;
+    if (!isCity(currentCity)) return false;
 
     let { cityName, emoji, date, notes } = currentCity;
 
